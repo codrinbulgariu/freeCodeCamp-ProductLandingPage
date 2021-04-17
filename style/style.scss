@@ -1,0 +1,685 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(/img/bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Poppins;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+$phone: 576px;
+$tablet: 768px;
+$desktop: 992px;
+$l-desktop: 1200px;
+
+@mixin phone {
+  @media (min-width: #{$phone}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin l-desktop {
+  @media (min-width: #{$l-desktop}) {
+    @content;
+  }
+}
+
+.hero {
+  max-width: 1400px;
+  padding: 0 0.9em;
+  margin: 0 auto;
+
+  @include tablet {
+    padding: 0 1.5em;
+    margin: 0 auto;
+  }
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(50px);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Roboto;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  @include phone {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+
+    img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    #t-logo {
+      font-size: 1.3em;
+      text-transform: uppercase;
+      color: white;
+      letter-spacing: 5px;
+      font-weight: 700;
+
+      @include phone {
+        font-size: 1.5em;
+      }
+      @include desktop {
+        font-size: 1.7em;
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    @include phone {
+      flex-direction: row;
+    }
+
+    li {
+      width: 100%;
+    }
+
+    a {
+      color: white;
+      padding: 0.5em;
+      display: block;
+
+      @include phone {
+        font-size: 1.2em;
+        padding: 0.5em 1.2em;
+      }
+      @include desktop {
+        font-size: 1.4em;
+        padding-right: 3em;
+      }
+    }
+    a:hover {
+      color: rgba(255, 255, 255, 0.637);
+    }
+  }
+}
+
+.primary-info {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  padding: 1em;
+  margin: 40px 0;
+  text-align: center;
+  color: white;
+
+  @include desktop {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  h1 {
+    font-weight: 900;
+    font-size: 3em;
+    font-family: Roboto, sans-serif;
+    letter-spacing: 3px;
+    padding-bottom: 30px;
+
+    @include tablet {
+      letter-spacing: 7px;
+    }
+
+    @include desktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 5em;
+      letter-spacing: 12px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+
+  p {
+    letter-spacing: 2px;
+    line-height: 1.8;
+
+    @include tablet {
+      font-size: 0.9em;
+      line-height: 2.2;
+    }
+
+    @include desktop {
+      padding: 1em;
+      width: 65%;
+      margin: 0 auto;
+      margin-bottom: 50px;
+      font-size: 1.3em;
+      letter-spacing: 3px;
+      font-weight: 500;
+    }
+  }
+}
+
+.info {
+  .grid {
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+    }
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 3fr;
+    }
+  }
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  padding: 1em;
+  color: white;
+  text-align: center;
+
+  @include tablet {
+    padding: 1.3em;
+  }
+
+  @include desktop {
+    background-color: rgba(255, 255, 255, 0.1);
+
+    p {
+      border-radius: 25px;
+      border: solid 2px transparent;
+      background-clip: padding-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      padding: 0 1em;
+      font-size: 1.2em;
+      line-height: 1.9;
+    }
+  }
+
+  iframe {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+
+    @include tablet {
+      margin: 30px 20px;
+      width: 92%;
+      height: 90%;
+      border-radius: 25px;
+    }
+
+    @include desktop {
+      margin-top: 20px;
+      height: 500px;
+      width: 90%;
+    }
+  }
+}
+
+#product {
+  margin: 30px 0;
+
+  @include tablet {
+    padding: 0 150px;
+    margin: 70px 0;
+  }
+
+  @include desktop {
+    padding: 0;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    margin-bottom: 40px;
+    display: grid;
+    grid-gap: 2.5em;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .camera1 {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    padding: 1em;
+    text-align: center;
+    color: white;
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    @include tablet {
+      margin-bottom: 20px;
+    }
+
+    .price {
+      h3 {
+        font-size: 1.5em;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font-family: Roboto;
+        font-weight: 500;
+        padding-bottom: 25px;
+
+        @include tablet {
+          font-size: 1.9em;
+        }
+      }
+      ul {
+        letter-spacing: 2px;
+
+        li {
+          font-size: 0.9em;
+          padding-bottom: 12px;
+          text-align: center;
+
+          @include tablet {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+
+    img {
+      width: 80%;
+      height: auto;
+      padding-bottom: 25px;
+    }
+
+    button {
+      margin: 15px 0;
+      padding: 6px 35px;
+      border-radius: 15px;
+      border: none;
+      background: linear-gradient(56deg, #830083, #da02d9);
+      color: white;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      align-items: flex-end;
+
+      @include tablet {
+        font-size: 1em;
+        letter-spacing: 8px;
+        padding: 9px 45px;
+        margin: 20px 0;
+      }
+    }
+  }
+
+  .camera2 {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    padding: 1em;
+    text-align: center;
+    color: white;
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    @include tablet {
+      margin-bottom: 20px;
+    }
+
+    .price {
+      h3 {
+        font-size: 1.5em;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font-family: Roboto;
+        font-weight: 500;
+        padding-bottom: 25px;
+
+        @include tablet {
+          font-size: 1.9em;
+        }
+      }
+      ul {
+        letter-spacing: 2px;
+
+        li {
+          font-size: 0.9em;
+          padding-bottom: 12px;
+          text-align: center;
+
+          @include tablet {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+
+    img {
+      width: 80%;
+      height: auto;
+      padding-bottom: 25px;
+    }
+
+    button {
+      margin: 15px 0;
+      padding: 6px 35px;
+      border-radius: 15px;
+      border: none;
+      background: linear-gradient(56deg, #830083, #da02d9);
+      color: white;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      align-items: flex-end;
+
+      @include tablet {
+        font-size: 1em;
+        letter-spacing: 8px;
+        padding: 9px 45px;
+        margin: 20px 0;
+      }
+    }
+  }
+
+  .camera3 {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    padding: 1em;
+    text-align: center;
+    color: white;
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .price {
+      h3 {
+        font-size: 1.5em;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font-family: Roboto;
+        font-weight: 500;
+        padding-bottom: 25px;
+
+        @include tablet {
+          font-size: 1.9em;
+        }
+      }
+      ul {
+        letter-spacing: 2px;
+
+        li {
+          font-size: 0.9em;
+          padding-bottom: 12px;
+          text-align: center;
+
+          @include tablet {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+
+    img {
+      width: 80%;
+      height: auto;
+      padding-bottom: 25px;
+    }
+
+    button {
+      margin: 15px 0;
+      padding: 6px 20px;
+      border-radius: 15px;
+      border: none;
+      background: linear-gradient(56deg, #830083, #da02d9);
+      color: white;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      align-items: flex-end;
+
+      @include tablet {
+        font-size: 1em;
+        letter-spacing: 8px;
+        padding: 9px 45px;
+        margin: 20px 0;
+      }
+    }
+  }
+}
+
+.news {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  padding: 1em;
+  text-align: center;
+
+  @include tablet {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  @include desktop {
+    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 60%;
+  }
+
+  @include l-desktop {
+    width: 50%;
+  }
+
+  h3 {
+    color: white;
+    font-weight: 600;
+    font-family: Roboto;
+    font-size: 1.7em;
+    padding-bottom: 25px;
+
+    @include tablet {
+      font-size: 1.9em;
+      letter-spacing: 2px;
+    }
+    @include desktop {
+      font-size: 2.2em;
+    }
+  }
+  form {
+    display: block;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  #form {
+    input {
+      border: none;
+      border-radius: 20px;
+      padding: 10px 40px;
+
+      @include desktop {
+        width: 100%;
+        padding: px 40px;
+      }
+    }
+
+    @include tablet {
+      padding: -3px 10pxpx;
+      height: 30px;
+    }
+    @include desktop {
+      margin: 35px;
+      padding: 13px 60px;
+    }
+  }
+
+  #submit {
+    margin-top: 30px;
+    border: none;
+    padding: 10px 30px;
+    background: linear-gradient(56deg, #830083, #da02d9);
+    border-radius: 20px;
+    color: white;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+
+    @include tablet {
+      margin-top: 0;
+      padding: 8px 20px;
+    }
+    @include desktop {
+      margin: 20px;
+      font-size: 1.1em;
+      padding: 10px 0px;
+    }
+  }
+}
+
+footer {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  padding: 1em;
+  margin-top: 30px;
+  margin-bottom: 5px;
+
+  @include tablet {
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 0;
+    height: 8%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
+
+  ul {
+    color: white;
+    display: block;
+    text-align: start;
+
+    @include tablet {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    li {
+      font-size: 0.9em;
+      color: rgb(204, 204, 204);
+
+      @include tablet {
+        padding: 0 10px;
+        font-size: 1em;
+        color: rgb(230, 228, 228);
+      }
+      @include l-desktop {
+        padding: 0 15px;
+        font-size: 1.2em;
+      }
+
+      &:hover,
+      :focus {
+        transform: scale(1.4);
+        transform: translateX(20px);
+        color: white;
+
+        @include tablet {
+          transform: scale(1.8);
+          transform: translateY(-5px);
+          color: white;
+        }
+      }
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-top: 10px;
+    color: white;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include tablet {
+      justify-content: center;
+      align-items: center;
+      padding-top: 0;
+      font-size: 0.9em;
+    }
+
+    @include l-desktop {
+      font-size: 1.1em;
+    }
+  }
+}
