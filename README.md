@@ -1,3 +1,3 @@
-# freeCodeCamp-TechnicalDocumentationPage
+# freeCodeCamp-ProductLandingPage
 
-freeCodeCamp PROJECT - Technical Documentation Page
+freeCodeCamp PROJECT - Product Landing Page
